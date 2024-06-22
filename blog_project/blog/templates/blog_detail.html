@@ -1,0 +1,60 @@
+<!-- blog_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ blog.title }}</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .blog-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .blog-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .blog-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+        }
+        .blog-meta {
+            font-size: 14px;
+            color: #999;
+            margin-top: 10px;
+        }
+        .blog-image {
+            max-width: 100%; /* Ensure image doesn't exceed container width */
+            border-radius: 8px; /* Rounded corners for image */
+            margin-bottom: 20px; /* Space between image and content */
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-container">
+        <h1 class="blog-title">{{ blog.title }}</h1>
+        {% if blog.image %}
+        <img class="blog-image" src="{{ blog.image.url }}" alt="{{ blog.title }}">
+        {% endif %}
+        <p class="blog-content">{{ blog.content }}</p>
+        <div class="blog-meta">
+<!--            <p>Author: {{ blog.author }}</p>-->
+            <p>Published on: {{ blog.created_at }}</p>
+            <p>Updated on: {{ blog.updated_at }}</p>
+        </div>
+    </div>
+</body>
+</html>
